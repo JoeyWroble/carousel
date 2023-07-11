@@ -1,0 +1,32 @@
+<head>
+  <title>Image Styles Example</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<!-- The grid: four columns -->
+<div class="row">
+  <div class="column">
+    <img src="http://www.restockit.com/images/Product/medium/605-16320.jpg" alt="1" class="image-style" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="http://s3images.shopletcdn.com/productimages/500x500/605-16670.JPG" alt="2" class="image-style" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="http://site.unbeatablesale.com/img184/orsno10001.gif" alt="3" class="image-style" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="https://m.media-amazon.com/images/I/41qQVbm2ZYL._UL320_.jpg" alt="4" class="image-style" onclick="myFunction(this);">
+  </div>
+</div>
+
+
+<!-- The expanding image container -->
+<div class="container">
+  <!-- Close the image -->
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+
+  <!-- Expanded image -->
+  <img id="expandedImg" style="width:100%">
+
+  <!-- Image text -->
+  <div id="imgtext"></div>
+</div>
