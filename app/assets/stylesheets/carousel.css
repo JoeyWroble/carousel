@@ -24,8 +24,8 @@
   
   /* The expanding image container (positioning is needed to position the close button and the text) */
   .container {
-    position: relative;
-    display: none;
+    position: middle;
+    display: all;
   }
   
   /* Expanding image text */
@@ -33,16 +33,16 @@
     position: absolute;
     bottom: 15px;
     left: 15px;
-    color: white;
+    color: blue;
     font-size: 20px;
   }
   
   /* Closable button inside the image */
   .closebtn {
-    position: absolute;
+    position: fixed;
     top: 10px;
     right: 15px;
-    color: white;
+    color: red;
     font-size: 35px;
     cursor: pointer;
   }
