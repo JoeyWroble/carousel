@@ -1,12 +1,22 @@
 function myFunction(imgs) {
-    // Get the expanded image
     var expandImg = document.getElementById("expandedImg");
-    // Get the image text
     var imgText = document.getElementById("imgtext");
-    // Use the same src in the expanded image as the image being clicked on from the grid
+    var closeBtn = document.getElementById("closeBtn"); // Add this line to get the close button element
+    
     expandImg.src = imgs.src;
-    // Use the value of the alt attribute of the clickable image as text inside the expanded image
     imgText.innerHTML = imgs.alt;
-    // Show the container element (hidden with CSS)
     expandImg.parentElement.style.display = "block";
+    
+    closeBtn.style.display = "block"; // Show the close button
   }
+  
+  function closeExpandedImage() {
+    var expandImg = document.getElementById("expandedImg");
+    var closeBtn = document.getElementById("closeBtn");
+    
+    expandImg.src = "";
+    expandImg.parentElement.style.display = "none";
+    
+    closeBtn.style.display = "none"; // Hide the close button
+  }
+  

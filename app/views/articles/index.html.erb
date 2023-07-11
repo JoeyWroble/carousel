@@ -24,11 +24,11 @@
 <!-- The expanding image container -->
 <div class="container">
   <!-- Close the image -->
-  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-
+  <span id="closeBtn" onclick="closeExpandedImage()" class="closebtn">&times;</span>
+  
   <!-- Expanded image -->
-  <img id="expandedImg" style="width:100%">
-
+  <img id="expandedImg" alt="">
+  
   <!-- Image text -->
   <div id="imgtext"></div>
 </div>
