@@ -30,7 +30,7 @@
   
   /* Expanding image text */
   #imgtext {
-    position: absolute;
+    position: relative;
     bottom: 15px;
     left: 15px;
     color: blue;
