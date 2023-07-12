@@ -2,6 +2,7 @@ function myFunction(imgs) {
     var expandImg = document.getElementById("expandedImg");
     var imgText = document.getElementById("imgtext");
     var closeBtn = document.getElementById("closeBtn");
+    var imgBtn = document.getElementById("imgBtn");
     
     expandImg.src = imgs.src;
     imgText.innerHTML = imgs.alt;
