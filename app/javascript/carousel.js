@@ -1,7 +1,7 @@
 function myFunction(imgs) {
     var expandImg = document.getElementById("expandedImg");
     var imgText = document.getElementById("imgtext");
-    var closeBtn = document.getElementById("closeBtn"); // Add this line to get the close button element
+    var closeBtn = document.getElementById("closeBtn");
     
     expandImg.src = imgs.src;
     imgText.innerHTML = imgs.alt;
