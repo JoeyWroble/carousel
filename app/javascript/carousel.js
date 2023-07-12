@@ -20,4 +20,6 @@ function myFunction(imgs) {
     
     closeBtn.style.display = "none"; // Hide the close button
   }
+
+
   

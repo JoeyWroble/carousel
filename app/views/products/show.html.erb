@@ -28,7 +28,7 @@
 <div class="row">
   <% @product.image_urls.split(',').each_with_index do |image_url, index| %>
     <div class="column">
-      <img src="<%= image_url.strip%>" alt="<%= index + 1 %>" class="image-style" onclick="myFunction(this);">
+      <img src="<%= image_url.strip %>" alt="<%= index + 1 %>" class="image-style" onclick="myFunction(this);">
     </div>
   <% end %>
 </div>
