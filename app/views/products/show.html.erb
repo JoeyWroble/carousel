@@ -4,7 +4,6 @@
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
 
-    <%= render @product %>
     <%= @product.title %>
 
     <%= link_to 'Edit this product', edit_product_path(@product), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
@@ -20,7 +19,7 @@
 <head>
   <title>Image Styles Example</title>
   <link rel="stylesheet" href="styles.css">
-  <%= javascript_include_tag 'carousel', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'carousel', 'showMore', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag 'carousel', media: 'all' %>
 </head>
 
@@ -33,6 +32,10 @@
     </div>
   <% end %>
 </div>
+
+<% if @product.image_urls.size > 4 %>
+  <button id="showMoreBtn" class = "show-more-btn">Show More</button>
+  <% end %>
 
 
 <!-- The expanding image container -->

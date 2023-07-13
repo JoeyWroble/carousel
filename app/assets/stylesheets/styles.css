@@ -2,5 +2,18 @@
     width: 200px;
     height: 150px;
   }
+  
+  .carousel-slides .slide:nth-child(n+5) {
+    display: none;
+  }
+  
+  .carousel-slides.show-all .slide:nth-child(n+5) {
+    display: block;
+  }
+  
+  .show-more-btn {
+    margin-top: 10px;
+  }
+  
 
   
