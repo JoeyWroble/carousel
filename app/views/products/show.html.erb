@@ -19,23 +19,27 @@
 <head>
   <title>Image Styles Example</title>
   <link rel="stylesheet" href="styles.css">
-  <%= javascript_include_tag 'carousel', 'showMore', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'carousel', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag 'carousel', media: 'all' %>
 </head>
 
 <!-- The grid: four columns -->
 <div class="row">
-  <% @product.image_urls.each_with_index do |image_url, index| %>
-    <% strip_image_url = image_url.to_s.strip.delete('"')%>
+  <% @product.image_urls.first(4).each_with_index do |image_url, index| %>
+    <% strip_image_url = image_url.to_s.strip.delete('"') %>
     <div class="column">
       <img src="<%= strip_image_url %>" alt="<%= index + 1 %>" class="image-style" onclick="myFunction(this);">
     </div>
   <% end %>
 </div>
 
-<% if @product.image_urls.size > 4 %>
-  <button id="showMoreBtn" class = "show-more-btn">Show More</button>
-  <% end %>
+<% remaining_images_count = @product.image_urls.size - 4 %>
+<% if remaining_images_count > 0 %>
+  <button id="showMoreBtn" class="show-more-button" data-images="<%= @product.image_urls.join(',') %>">
+    Show More (<%= remaining_images_count %>)
+  </button>
+<% end %>
+
 
 
 <!-- The expanding image container -->
