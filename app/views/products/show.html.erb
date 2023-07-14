@@ -35,17 +35,11 @@
 
 <% remaining_images_count = @product.image_urls.size - 4 %>
 <% if remaining_images_count > 0 %>
-  <button id="showMoreBtn" class="show-more-button" data-images="<%= @product.image_urls.join(',') %>">
-    Show More (<%= remaining_images_count %>)
-  </button>
+  <button type="button" id="showMoreBtn">Show More (<%= remaining_images_count %>)</button>
 <% end %>
-
-
 
 <!-- The expanding image container -->
 <div class="container">
-  <!-- Close the image -->
-  <span id="closeBtn" onclick="closeExpandedImage()" class="closebtn">&times;</span>
   
   <!-- Expanded image -->
   <img id="expandedImg" alt="">
@@ -53,3 +47,77 @@
   <!-- Image text -->
   <div id="imgtext"></div>
 </div>
+
+<!-- Modal Code -->
+<div id="myModal" class="modal">
+<link rel="stylesheet" href="styles.css">
+  <div class="modal-content">
+    <div class="row">
+      <% @product.image_urls.each_with_index do |image_url, index| %>
+        <% strip_image_url = image_url.to_s.strip.delete('"') %>
+        <div class="column">
+          <img src="<%= strip_image_url %>" alt="<%= index + 1 %>" class="image-style" onclick="showExpandedImage(this);">
+        </div>
+        <% if (index + 1) % 4 == 0 %>
+          <% if index + 1 != @product.image_urls.size %>
+            </div>
+            <div class="row">
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <span class="modal-close">&times;</span>
+    <div id="modalContent">
+      <!-- The expanding image container -->
+      <div class="container">
+        
+        <!-- Expanded image -->
+        <img id="expandedImg" alt="">
+        
+        <!-- Image text -->
+        <div id="imgtext"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<%= stylesheet_link_tag 'modal', media: 'all' %>
+
+<script>
+function showExpandedImage(img) {
+  var expandImg = document.getElementById("modalContent").querySelector("#expandedImg");
+  var imgText = document.getElementById("modalContent").querySelector("#imgtext");
+  var closeBtn = document.getElementById("modalContent").querySelector("#closeBtn");
+
+  expandImg.src = img.src;
+  imgText.innerHTML = img.alt;
+  document.getElementById("modalContent").style.display = "block";
+  closeBtn.style.display = "block";
+}
+
+function closeExpandedImage() {
+  var expandImg = document.getElementById("modalContent").querySelector("#expandedImg");
+  var closeBtn = document.getElementById("modalContent").querySelector("#closeBtn");
+
+  expandImg.src = "";
+  document.getElementById("modalContent").style.display = "none";
+  closeBtn.style.display = "none";
+}
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('myModal');
+    const showMoreBtn = document.getElementById('showMoreBtn');
+    const modalClose = document.getElementsByClassName('modal-close')[0];
+  
+    showMoreBtn.addEventListener('click', function() {
+      modal.style.display = 'block';
+    });
+  
+    modalClose.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+  });
+</script>

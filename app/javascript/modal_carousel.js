@@ -1,4 +1,4 @@
-function myFunction(imgs) {
+function myFunction2(imgs) {
     var expandImg = document.getElementById("expandedImg");
     var imgText = document.getElementById("imgtext");
     var closeBtn = document.getElementById("closeBtn");
