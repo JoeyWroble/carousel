@@ -14,7 +14,7 @@
   
   .modal-content {
     background-color: #fefefe;
-    margin: auto;
+    margin: 20px;
     padding: 20px;
     border: 1px solid #888;
     width: 50%;
@@ -61,8 +61,8 @@
     scroll-snap-align: start;
     flex: 0 0 auto;
     margin-right: 10px;
-    width: 200px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
   }
   
   .modal-carousel .column img {

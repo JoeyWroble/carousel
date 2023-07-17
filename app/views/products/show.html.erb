@@ -51,6 +51,7 @@
 <!-- Modal Code -->
 <div id="myModal" class="modal">
 <link rel="stylesheet" href="styles.css">
+<%= stylesheet_link_tag 'modal', media: 'all' %>
   <div class="modal-content">
     <div class="row">
       <% @product.image_urls.each_with_index do |image_url, index| %>
