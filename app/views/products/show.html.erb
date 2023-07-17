@@ -88,21 +88,20 @@
 function showExpandedImage(img) {
   var expandImg = document.getElementById("modalContent").querySelector("#expandedImg");
   var imgText = document.getElementById("modalContent").querySelector("#imgtext");
-  var closeBtn = document.getElementById("modalContent").querySelector("#closeBtn");
 
   expandImg.src = img.src;
   imgText.innerHTML = img.alt;
   document.getElementById("modalContent").style.display = "block";
-  closeBtn.style.display = "block";
+  
 }
 
 function closeExpandedImage() {
   var expandImg = document.getElementById("modalContent").querySelector("#expandedImg");
-  var closeBtn = document.getElementById("modalContent").querySelector("#closeBtn");
+  
 
   expandImg.src = "";
   document.getElementById("modalContent").style.display = "none";
-  closeBtn.style.display = "none";
+  
 }
   document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('myModal');
