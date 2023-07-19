@@ -6,11 +6,11 @@
 
     <p style="text-align:center;font-size:50px;"> <%= @product.title %> </p>
 
-    <%= link_to 'Edit this product', edit_product_path(@product), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this product', edit_product_path(@product), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium hover:text-white hover:bg-sky-700" %>
     <div class="inline-block ml-2">
-      <%= button_to 'Destroy this product', product_path(@product), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      <%= button_to 'Destroy this product', product_path(@product), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium hover:text-white hover:bg-sky-700" %>
     </div>
-    <%= link_to 'Back to products', products_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Back to products', products_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium hover:text-white hover:bg-sky-700" %>
   </div>
 </div>
 
@@ -24,15 +24,15 @@
 <div class="row">
   <% @product.image_urls.first(4).each_with_index do |image_url, index| %>
     <% strip_image_url = image_url.to_s.strip.delete('"') %>
-    <div class="column">
+    <button class="column focus:outline-none focus:ring focus:ring-sky-300">
       <img src="<%= strip_image_url %>" alt="<%= index + 1 %>" class="image-style" onclick="myFunction(this);">
-    </div>
+    </button>
   <% end %>
 </div>
 
 <% remaining_images_count = @product.image_urls.size - 4 %>
 <% if remaining_images_count > 0 %>
-  <button type="button" id="showMoreBtn"> <p style="color:blue;">Show More (<%= remaining_images_count %>)</button>
+  <button id="showMoreBtn" class="mt-2 rounded-lg py-3 px-5 inline-block font-medium text-white bg-sky-500 hover:bg-sky-700">Show More (<%= remaining_images_count %>)</button>
 <% end %>
 
 <!-- The expanding image container -->
@@ -52,10 +52,10 @@
     <span class="modal-close">&times;</span>
       <% @product.image_urls.each_with_index do |image_url, index| %>
         <% strip_image_url = image_url.to_s.strip.delete('"') %>
-        <div class="column">
+        <button class="column focus:outline-none focus:ring focus:ring-sky-300">
           <img src="<%= strip_image_url %>" alt="<%= index + 1 %>" class="image-style" onclick="showExpandedImage(this);">
-        </div>
-        <% if (index + 1) % 3 == 0 %>
+        </button>
+        <% if (index + 1) % 4 == 0 %>
           <% if index + 1 != @product.image_urls.size %>
             </div>
             <div class="image-grid">
@@ -76,6 +76,8 @@
     </div>
   </div>
 </div>
+
+<!-- Javascript for the modal window -->
 
 <script>
   function showExpandedImage(img) {
