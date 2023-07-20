@@ -28,9 +28,6 @@
 </div>
 
 <div class="row">
-
-
-
   <% @product.image_urls.first(4).each_with_index do |image_url, index| %>
     <% strip_image_url = image_url.to_s.strip.delete('"') %>
     <button class="column focus:outline-none focus:ring focus:ring-sky-300">
@@ -38,7 +35,6 @@
     </button>
   <% end %>
 </div>
-
 <!-- The expanding image container -->
 <div class="container">
   
@@ -64,9 +60,5 @@
   document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('myModal');
     const showMoreBtn = document.getElementById('showMoreBtn');
-
-    showMoreBtn.addEventListener('click', function() {
-      modal.style.display = 'block';
-    });
   });
 </script>
