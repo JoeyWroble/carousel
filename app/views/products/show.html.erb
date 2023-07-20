@@ -39,11 +39,6 @@
   <% end %>
 </div>
 
-<% remaining_images_count = @product.image_urls.size - 4 %>
-<% if remaining_images_count > 0 %>
-  <button id="showMoreBtn" class="mt-2 rounded-lg py-3 px-5 inline-block font-medium text-white bg-sky-500 hover:bg-sky-700">Show More (<%= remaining_images_count %>)</button>
-<% end %>
-
 <!-- The expanding image container -->
 <div class="container">
   
@@ -52,37 +47,6 @@
   
   <!-- Image text -->
   <div id="imgtext"></div>
-</div>
-
-<!-- Modal Code -->
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <div class="image-grid">
-    <span class="modal-close">&times;</span>
-      <% @product.image_urls.each_with_index do |image_url, index| %>
-        <% strip_image_url = image_url.to_s.strip.delete('"') %>
-        <button class="column focus:outline-none focus:ring focus:ring-sky-300">
-          <img src="<%= strip_image_url %>" alt="<%= index + 1 %>" class="image-style" onclick="showExpandedImage(this);">
-        </button>
-        <% if (index + 1) % 4 == 0 %>
-          <% if index + 1 != @product.image_urls.size %>
-            </div>
-            <div class="image-grid">
-          <% end %>
-        <% end %>
-      <% end %>
-    </div>
-    <span class="modal-close" onclick="closeModal()">&times;</span>
-    <div id="modalContent">
-      <!-- The expanding image container -->
-      <div class="container">   
-        <!-- Expanded image -->
-        <img id="expandedImg" alt="">
-        <!-- Image text -->
-        <div id="imgtext"></div>
-      </div>
-    </div>
-  </div>
 </div>
 
 <!-- Javascript for the modal window -->
@@ -95,10 +59,6 @@
     expandImg.src = img.src;
     imgText.innerHTML = img.alt;
     document.getElementById("modalContent").style.display = "block";
-  }
-
-  function closeModal() {
-    document.getElementById("myModal").style.display = "none";
   }
 
   document.addEventListener('DOMContentLoaded', function() {

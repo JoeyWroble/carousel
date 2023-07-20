@@ -1,41 +1,49 @@
 <div data-controller="dialog">
 
-  <button type='button' data-action="click->dialog#open" class="app_link text-md">
-    Show Dialog
-  </button>
+  <!-- Button to open the modal window -->
+  <% remaining_images_count = @product.image_urls.size - 4 %>
+  <% if remaining_images_count > 0 %>
+    <button type='button' data-action="click->dialog#open" class="app_link text-mdmt-2 rounded-lg py-3 px-5 inline-block font-medium text-white bg-sky-500 hover:bg-sky-700">
+    Show More (<%= remaining_images_count %>)</button>
+  <% end %>
 
-  <dialog class="p-0" style="background-color: rgba(0,0,0,0)"
-          data-dialog-target="dialog"
-          data-action = "click->dialog#click">
+  <dialog class="p-0" style="background-color: rgba(255,255,255)" data-dialog-target="dialog">
 
+    <!-- Modal code -->
     <section aria-labelledby="add-location-form-heading">
         <div class="shadow sm:rounded-md sm:overflow-hidden">
           <div class="bg-white py-6 px-4 sm:p-6">
             <div>
-              <h2 id="add-location-form-heading" class="text-lg leading-6 font-medium text-gray-900">
-                Add to Location
-              </h2>
-              <p class="mt-1 text-sm text-gray-500">Do we need a description?</p>
-            </div>
+              <div id="heading" class="text-lg leading-6 font-bold text-gray-900">
+                <%= @product.title %>
+              </div>
+                <div class="image-grid">
+                  <span class="modal-close" data-action="click->dialog#close">&times;</span>
+                  <% @product.image_urls.each_with_index do |image_url, index| %>
+                    <% strip_image_url = image_url.to_s.strip.delete('"') %>
+                    <button class="column focus:outline-none focus:ring focus:ring-sky-300">
+                      <img src="<%= strip_image_url %>" alt="<%= index + 1 %>" class="image-style" onclick="showExpandedImage(this);">
+                    </button>
+                    <% if (index + 1) % 5 == 0 %>
+                      <% if index + 1 != @product.image_urls.size %>
+                        </div>
+                        <div class="image-grid">
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </div>
+                <span class="modal-close" data-action="click->dialog#close">&times;</span>
+                <div id="modalContent">
+                  <!-- The expanding image container -->
+                  <div class="container">   
+                    <!-- Expanded image -->
+                    <img id="expandedImg" alt="">
+                    <!-- Image text -->
+                    <div id="imgtext"></div>
+                  </div>
+                </div>
+              </div>
 
-            <div class="mt-6 grid grid-cols-4 gap-6">
-
-              <span>Hello</span>
-              <span>World</span>
-
-            </div>
+            </dialog>
 
           </div>
-
-          <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-            <button type="submit" class="bg-gray-800 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
-              Add
-            </button>
-          </div>
-        </div>
-    </section>
-
-  </dialog>
-
-</div>
-
