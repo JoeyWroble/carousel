@@ -22,6 +22,15 @@
 </head>
 
 <div class="row">
+
+  <%= render 'products/test_dialog' %>
+
+</div>
+
+<div class="row">
+
+
+
   <% @product.image_urls.first(4).each_with_index do |image_url, index| %>
     <% strip_image_url = image_url.to_s.strip.delete('"') %>
     <button class="column focus:outline-none focus:ring focus:ring-sky-300">
