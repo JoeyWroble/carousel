@@ -44,3 +44,20 @@
               </div>
             </dialog>
           </div>
+
+          <!-- Javascript for the modal window -->
+
+<script>
+  function modalShowExpandedImage(img) {
+    var modalexpandImg = document.getElementById("modalContent").querySelector("#modalexpandedImg");
+    var modalimgText = document.getElementById("modalContent").querySelector("#modalimgtext");
+
+    modalexpandImg.src = img.src;
+    modalimgText.innerHTML = img.alt;
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('myModal');
+    const showMoreBtn = document.getElementById('showMoreBtn');
+  });
+</script>

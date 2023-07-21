@@ -14,46 +14,6 @@
   </div>
 </div>
 
-<!-- Code for Carousel -->
+<%= render 'products/carousel' %>
 
-<head>
-  <%= javascript_include_tag 'carousel', 'data-turbolinks-track': 'reload' %>
-</head>
 
-<div class="row">
-  <% @product.image_urls.first(4).each_with_index do |image_url, index| %>
-    <% strip_image_url = image_url.to_s.strip.delete('"') %>
-    <button class="column focus:outline-none focus:ring focus:ring-sky-300 rounded-lg">
-      <img src="<%= strip_image_url %>" alt="<%= index + 1 %>" class="image-style rounded-lg" onclick="expandImg1(this);">
-    </button>
-  <% end %>
-</div>
-
-<%= render 'products/modal' %>
-
-  <!-- The expanding image container -->
-  <div class="container">
-  
-  <!-- Expanded image -->
-  <img id="expandedImg" alt="">
-  
-  <!-- Image text -->
-  <div id="imgtext"></div>
-</div>
-
-<!-- Javascript for the modal window -->
-
-<script>
-  function modalShowExpandedImage(img) {
-    var modalexpandImg = document.getElementById("modalContent").querySelector("#modalexpandedImg");
-    var modalimgText = document.getElementById("modalContent").querySelector("#modalimgtext");
-
-    modalexpandImg.src = img.src;
-    modalimgText.innerHTML = img.alt;
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('myModal');
-    const showMoreBtn = document.getElementById('showMoreBtn');
-  });
-</script>
