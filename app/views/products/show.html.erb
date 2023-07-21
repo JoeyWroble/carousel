@@ -22,15 +22,10 @@
 </head>
 
 <div class="row">
-
-</div>
-
-
-<div class="row">
   <% @product.image_urls.first(4).each_with_index do |image_url, index| %>
     <% strip_image_url = image_url.to_s.strip.delete('"') %>
-    <button class="column focus:outline-none focus:ring focus:ring-sky-300">
-      <img src="<%= strip_image_url %>" alt="<%= index + 1 %>" class="image-style" onclick="myFunction(this);">
+    <button class="column focus:outline-none focus:ring focus:ring-sky-300 rounded-lg">
+      <img src="<%= strip_image_url %>" alt="<%= index + 1 %>" class="image-style rounded-lg" onclick="myFunction(this);">
     </button>
   <% end %>
 </div>
@@ -44,9 +39,8 @@
   <img id="expandedImg2" alt="">
   
   <!-- Image text -->
-  <div id="imgtext"></div>
+  <div id="imgtext2"></div>
 </div>
-
 
 <!-- Javascript for the modal window -->
 
