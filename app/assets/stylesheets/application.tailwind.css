@@ -40,7 +40,7 @@
   display: block;
 }
 
-#imgtext2 {
+#imgtext {
   position: absolute;
   bottom: 15px;
   left: 15px;
@@ -48,7 +48,7 @@
   font-size: 20px;
 }
 
-#expandedImg2 {
+#expandedImg {
   display: block;
   margin: 0 auto;
   position: relative;
@@ -110,12 +110,7 @@
   cursor: pointer;
 }
 
-.modal-image-container {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-#expandedImg {
+#modalexpandedImg {
   display: block;
   margin: 0 auto;
   position: relative;
@@ -124,7 +119,7 @@
   height: 300px;
 }
 
-#imgtext {
+#modalimgtext {
   position: absolute;
   bottom: 15px;
   left: 15px;

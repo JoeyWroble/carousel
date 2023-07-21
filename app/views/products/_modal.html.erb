@@ -21,7 +21,7 @@
                   <% @product.image_urls.each_with_index do |image_url, index| %>
                     <% strip_image_url = image_url.to_s.strip.delete('"') %>
                     <button class="column focus:outline-none focus:ring focus:ring-sky-300 rounded-lg">
-                      <img src="<%= strip_image_url %>" alt="<%= index + 1 %>" class="image-style rounded-lg" onclick="showExpandedImage(this);">
+                      <img src="<%= strip_image_url %>" alt="<%= index + 1 %>" class="image-style rounded-lg" onclick="modalShowExpandedImage(this);">
                     </button>
                     <% if (index + 1) % 5 == 0 %>
                       <% if index + 1 != @product.image_urls.size %>
@@ -33,16 +33,14 @@
                 </div>
                 <span class="modal-close" data-action="click->dialog#close">&times;</span>
                 <div id="modalContent">
-                  <!-- The expanding image container -->
-                  <div class="container">   
+                    <!-- The expanding image container -->
+                    <div class="container">   
                     <!-- Expanded image -->
-                    <img id="expandedImg" alt="">
+                    <img id="modalexpandedImg" alt="">
                     <!-- Image text -->
-                    <div id="imgtext"></div>
+                    <div id="modalimgtext"></div>
                   </div>
                 </div>
               </div>
-
             </dialog>
-
           </div>
