@@ -156,6 +156,11 @@
   object-fit: contain;
 }
 
+.modal-heading {
+  background-color: #bbbbbb;
+  padding: 15px;
+}
+
 .image-style {
   width: 125px;
   height: 125px;
