@@ -4,6 +4,15 @@
   <%= javascript_include_tag 'carousel', 'data-turbolinks-track': 'reload' %>
 </head>
 
+
+  <!-- The expanding image container -->
+  <div class="container">
+  
+  <!-- Expanded image -->
+  <img id="expandedImg" alt="">
+
+</div>
+
 <div class="row">
   <% @product.image_urls.first(4).each_with_index do |image_url, index| %>
     <% strip_image_url = image_url.to_s.strip.delete('"') %>
@@ -14,16 +23,6 @@
 </div>
 
 <%= render 'products/modal' %>
-
-  <!-- The expanding image container -->
-  <div class="container">
-  
-  <!-- Expanded image -->
-  <img id="expandedImg" alt="">
-  
-  <!-- Image text -->
-  <div id="imgtext"></div>
-</div>
 
 <!-- javascript for carousel -->
 

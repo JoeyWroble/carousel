@@ -10,12 +10,18 @@
   <dialog class="p-0" style="background-color: rgba(255,255,255)" data-dialog-target="dialog">
 
     <!-- Modal code -->
-        <div class="shadow sm:rounded-md sm:overflow-hidden">
-          <div class="bg-white py-6 px-4 sm:p-6">
+        <div class="rounded-lg shadow md:rounded-lg sm:overflow-hidden">
+          <div class="rounded-lg bg-(33,33,33)">
             <div>
-              <h2 class="modal-heading flex justify-center items-center text-lg leading-6 font-bold text-gray-900">
+              <h2 class="modal-heading d-flex.flex-nowrap.justify-space text-lg font-bold pr-ring-color: rgba(59,130,246,.5);">
                 <%= @product.title %>
               </h2>
+              <div id="modalContent">
+                    <!-- The expanding image container -->
+                    <div class="container">   
+                    <!-- Expanded image -->
+                    <img id="modalexpandedImg" alt="">
+                  </div>
                 <div class="image-grid">
                   <span class="modal-close" data-action="click->dialog#close">&times;</span>
                   <% @product.image_urls.each_with_index do |image_url, index| %>
@@ -32,14 +38,6 @@
                   <% end %>
                 </div>
                 <span class="modal-close" data-action="click->dialog#close">&times;</span>
-                <div id="modalContent">
-                    <!-- The expanding image container -->
-                    <div class="container">   
-                    <!-- Expanded image -->
-                    <img id="modalexpandedImg" alt="">
-                    <!-- Image text -->
-                    <div id="modalimgtext"></div>
-                  </div>
                 </div>
               </div>
             </dialog>
