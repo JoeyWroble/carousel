@@ -40,7 +40,7 @@
   display: block;
 }
 
-#imgtext {
+#imgtext2 {
   position: absolute;
   bottom: 15px;
   left: 15px;
@@ -48,7 +48,7 @@
   font-size: 20px;
 }
 
-#expandedImg {
+#expandedImg2 {
   display: block;
   margin: 0 auto;
   position: relative;
@@ -116,9 +116,20 @@
 }
 
 #expandedImg {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  top: 20px;
+  width: 300px;
+  height: 300px;
+}
+
+#imgtext {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: #888;
+  font-size: 20px;
 }
 
 .modal-carousel {
