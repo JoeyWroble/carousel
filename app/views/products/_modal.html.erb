@@ -1,8 +1,9 @@
   <dialog class="p-0" style="background-color: rgba(255,255,255)" data-dialog-target="dialog">
 
     <!-- Modal code -->
-        <div class="rounded-lg shadow md:rounded-lg sm:overflow-hidden">
-          <div class="rounded-lg bg-(33,33,33)">
+    
+        <div class="rounded-lg shadow md:rounded-lg sm:overflow-hidden ">
+          <div class="rounded-lg bg-(229,229,229)">
             <div>
               <h2 class="modal-heading d-flex.flex-nowrap.justify-space text-lg font-bold pr-ring-color: rgba(59,130,246,.5);">
                 <%= @product.title %>
@@ -34,19 +35,23 @@
             </dialog>
           </div>
 
-          <!-- Javascript for the modal window -->
+<!-- Javascript for the modal window -->
 
 <script>
   function modalShowExpandedImage(img) {
     var modalexpandImg = document.getElementById("modalContent").querySelector("#modalexpandedImg");
-    var modalimgText = document.getElementById("modalContent").querySelector("#modalimgtext");
 
     modalexpandImg.src = img.src;
-    modalimgText.innerHTML = img.alt;
   }
 
   document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('myModal');
+    const modal = document.getElementById('modalContent').closest('dialog');
     const showMoreBtn = document.getElementById('showMoreBtn');
+    const firstImage = document.querySelector(".image-style");
+    modalShowExpandedImage(firstImage);
+
+    showMoreBtn.addEventListener('click', function() {
+      modal.showModal();
+    });
   });
 </script>

@@ -13,7 +13,7 @@
 
 </div>
 
-<!-- Button to open the modal window -->
+<!-- Button to open the modal window and code for carousel -->
 <div data-controller="dialog">
 <% remaining_images_count = @product.image_urls.size - 4 %>
 <% if remaining_images_count > 0 %>
@@ -33,16 +33,20 @@
 
 <%= render 'products/modal' %>
 
-<!-- javascript for carousel -->
+  <!-- JavaScript for carousel -->
+  <script>
+    function expandImg1(imgs) {
+      var expandImg = document.getElementById("expandedImg");
+      var imgText = document.getElementById("imgtext");
 
-<script>
-function expandImg1(imgs) {
-    var expandImg = document.getElementById("expandedImg");
-    var imgText = document.getElementById("imgtext");
-    
-    expandImg.src = imgs.src;
-    imgText.innerHTML = imgs.alt;
-    expandImg.parentElement.style.display = "block";
-  }
-</script>
-  
+      expandImg.src = imgs.src;
+      imgText.innerHTML = imgs.alt;
+      expandImg.parentElement.style.display = "block";
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const firstImage = document.querySelector(".image-style");
+      expandImg1(firstImage);
+      });
+  </script>
+</div>
