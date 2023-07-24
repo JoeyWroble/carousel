@@ -19,8 +19,9 @@
                   <% @product.image_urls.each_with_index do |image_url, index| %>
                     <% strip_image_url = image_url.to_s.strip.delete('"') %>
                     <button class="column focus:outline-none focus:ring focus:ring-sky-300 rounded-lg">
-                      <img src="<%= strip_image_url %>" alt="<%= index + 1 %>" class="image-style rounded-lg" onclick="modalShowExpandedImage(this);">
+                      <img src="<%= strip_image_url %>" alt="<%= index + 1 %>" class="image-style rounded-lg" onload="modalShowExpandedImage(this);" onclick="modalShowExpandedImage(this);">
                     </button>
+                    
                     <% if (index + 1) % 5 == 0 %>
                       <% if index + 1 != @product.image_urls.size %>
                         </div>

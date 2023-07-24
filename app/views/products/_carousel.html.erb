@@ -4,34 +4,34 @@
   <%= javascript_include_tag 'carousel', 'data-turbolinks-track': 'reload' %>
 </head>
 
-
-  <!-- The expanding image container -->
-  <div class="container">
-  
+<!-- The expanding image container -->
+<div class="container">
   <!-- Expanded image -->
   <img id="expandedImg" alt="">
-
 </div>
 
 <!-- Button to open the modal window and code for carousel -->
 <div data-controller="dialog">
-<% remaining_images_count = @product.image_urls.size - 4 %>
-<% if remaining_images_count > 0 %>
-  <div class="row">
-    <% @product.image_urls.first(4).each_with_index do |image_url, index| %>
-      <% strip_image_url = image_url.to_s.strip.delete('"') %>
-      <button class="column focus:outline-none focus:ring focus:ring-sky-300 rounded-lg">
-        <img src="<%= strip_image_url %>" alt="<%= index + 1 %>" class="image-style rounded-lg" onclick="expandImg1(this);">
+  <% remaining_images_count = @product.image_urls.size - 4 %>
+  <% if remaining_images_count > 0 %>
+    <div class="row">
+      <% @product.image_urls.first(4).each_with_index do |image_url, index| %>
+        <% strip_image_url = image_url.to_s.strip.delete('"') %>
+        <button class="column focus:outline-none focus:ring focus:ring-sky-300 rounded-lg">
+          <img src="<%= strip_image_url %>" alt="<%= index + 1 %>" class="image-style rounded-lg" onclick="expandImg1(this);" 
+          <% if index == 0 %> 
+            onload="expandImg1(this);" 
+          <% end %>>
+        </button>
+      <% end %>
+
+      <button type='button' data-action="click->dialog#open" class="text-lg show-more-btn app_link focus:outline-none text-cyan-800 rounded-lg image-style">
+        +<%= remaining_images_count %>
       </button>
-    <% end %>
+    </div>
+  <% end %>
 
-    <button type='button' data-action="click->dialog#open" class="text-lg show-more-btn app_link focus:outline-none text-cyan-800 rounded-lg image-style">
-      +<%= remaining_images_count %>
-    </button>
-  </div>
-<% end %>
-
-<%= render 'products/modal' %>
+  <%= render 'products/modal' %>
 
   <!-- JavaScript for carousel -->
   <script>
@@ -43,10 +43,5 @@
       imgText.innerHTML = imgs.alt;
       expandImg.parentElement.style.display = "block";
     }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      const firstImage = document.querySelector(".image-style");
-      expandImg1(firstImage);
-      });
   </script>
 </div>
