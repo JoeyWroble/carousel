@@ -2,7 +2,7 @@
 
     <!-- Modal code -->
     
-        <div class="rounded-lg shadow md:rounded-lg sm:overflow-hidden ">
+        <div class="modal rounded-lg shadow md:rounded-lg sm:overflow-hidden ">
           <div class="rounded-lg bg-(229,229,229)">
             <div>
               <h2 class="modal-heading d-flex.flex-nowrap.justify-space text-lg font-bold pr-ring-color: rgba(59,130,246,.5);">
@@ -19,9 +19,8 @@
                   <% @product.image_urls.each_with_index do |image_url, index| %>
                     <% strip_image_url = image_url.to_s.strip.delete('"') %>
                     <button class="column focus:outline-none focus:ring focus:ring-sky-300 rounded-lg">
-                      <img src="<%= strip_image_url %>" alt="<%= index + 1 %>" class="image-style rounded-lg" onload="modalShowExpandedImage(this);" onclick="modalShowExpandedImage(this);">
+                      <img src="<%= strip_image_url %>" alt="<%= index + 1 %>" class="image-style rounded-lg" onclick="modalShowExpandedImage(this);">
                     </button>
-                    
                     <% if (index + 1) % 5 == 0 %>
                       <% if index + 1 != @product.image_urls.size %>
                         </div>
