@@ -25,7 +25,7 @@
         </button>
       <% end %>
 
-      <button type='button' data-action="click->dialog#open" class="text-lg show-more-btn app_link focus:outline-none text-cyan-800 rounded-lg image-style">
+      <button id = "showMoreBtn" type='button' data-action="click->dialog#open" class="text-lg show-more-btn app_link focus:outline-none text-cyan-800 rounded-lg image-style">
         +<%= remaining_images_count %>
       </button>
     </div>
@@ -37,11 +37,16 @@
   <script>
     function expandImg1(imgs) {
       var expandImg = document.getElementById("expandedImg");
-      var imgText = document.getElementById("imgtext");
 
       expandImg.src = imgs.src;
-      imgText.innerHTML = imgs.alt;
       expandImg.parentElement.style.display = "block";
     }
   </script>
 </div>
+
+
+
+
+
+
+
