@@ -1,27 +1,25 @@
 <!-- Code for Carousel -->
 
 <head>
-  <%= javascript_include_tag 'carousel', 'data-turbolinks-track': 'reload' %>
+  <script src="gallery_controller.js" data-turbolinks-track="reload"></script>
 </head>
 
+
 <!-- The expanding image container -->
-<div class="container">
-  <!-- Expanded image -->
-  <img id="expandedImg" alt="">
+    <div class="container">
+<!-- Expanded image -->
+    <img id="expandedImg" alt="" src="<%=@product.image_urls.first %>">
 </div>
 
 <!-- Button to open the modal window and code for carousel -->
-<div data-controller="dialog">
+<div data-controller="dialog gallery">
   <% remaining_images_count = @product.image_urls.size - 4 %>
   <% if remaining_images_count > 0 %>
     <div class="row">
       <% @product.image_urls.first(4).each_with_index do |image_url, index| %>
         <% strip_image_url = image_url.to_s.strip.delete('"') %>
         <button class="column focus:outline-none focus:ring focus:ring-sky-300 rounded-lg">
-          <img src="<%= strip_image_url %>" alt="<%= index + 1 %>" class="image-style rounded-lg" onclick="expandImg1(this);" 
-          <% if index == 0 %> 
-            onload="expandImg1(this);"
-          <% end %>>
+          <img src="<%= strip_image_url %>" alt="<%= index + 1 %>" class="image-style rounded-lg" data-action="click->gallery#expandCar">
         </button>
       <% end %>
 
@@ -33,15 +31,6 @@
 
   <%= render 'products/modal' %>
 
-  <!-- JavaScript for carousel -->
-  <script>
-    function expandImg1(imgs) {
-      var expandImg = document.getElementById("expandedImg");
-
-      expandImg.src = imgs.src;
-      expandImg.parentElement.style.display = "block";
-    }
-  </script>
 </div>
 
 
