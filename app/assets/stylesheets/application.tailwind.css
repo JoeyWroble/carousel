@@ -105,7 +105,10 @@
   flex-wrap: nowrap;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 10px;
+}
+
+.modal-content {
+  padding: 20px;
 }
 
 
