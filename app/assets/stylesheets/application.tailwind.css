@@ -8,17 +8,19 @@
 .row {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  overflow: auto;
+  white-space: nowrap;
 }
 
 .column {
+  flex-shrink: 0;
+  width: 62px;
+  height: 62px;
+  margin: 16px;
+  border: 1px solid gray;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 62px;
-  height: 62px;
-  border: 1px solid gray;
-  margin: 16px;
 }
 
 .column img {
@@ -52,13 +54,6 @@
   display: none;
 }
 
-.row {
-  flex-basis: 20%;
-  padding: 5px;
-  box-sizing: border-box;
-  text-align: center;
-}
-
 /* Styles for the modal */
 
 .modal {
@@ -69,9 +64,11 @@
   z-index: 1000;
   width: 60%;
   height: 80%;
-  overflow: auto;
+  overflow: hidden;
   background-color: white;
+  overflow-x: auto;
 }
+
 
 .modal-close {
   color: (0,0,0,.54);
@@ -104,38 +101,17 @@
 
 .modal-carousel {
   display: flex;
+  overflow-x: auto;
   flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   padding: 10px;
 }
 
-.modal-carousel .column {
-  flex: 0 0 auto;
-  margin: 16px;
-  margin-bottom: 10px;
-  width: 100px;
-  height: 100px;
-  border: 1px solid gray;
-}
-
-.modal-carousel .column img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-}
 
 .modal-heading {
   background-color: #f1f1f1;
   padding: 15px;
-}
-
-.image-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
 }
 
 .image-style {

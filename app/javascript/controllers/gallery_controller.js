@@ -20,5 +20,6 @@ expandMod(event) {
   const modalExpandImg = document.getElementById("modalExpandImg");
 
   modalExpandImg.src = img.src;
-  }
+}
+
 }
