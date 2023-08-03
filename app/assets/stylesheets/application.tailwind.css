@@ -137,4 +137,25 @@
 }
 
 
+@media (max-width: 640px) {
+  .modal {
+    width: 90%;
+    height: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .column {
+    width: 48px;
+    height: 48px;
+    margin: 8px;
+  }
+  .image-style {
+    width: 48px;
+    height: 48px;
+  }
+
+}
+
+
 
