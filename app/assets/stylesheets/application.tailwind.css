@@ -117,6 +117,12 @@
   padding: 15px;
 }
 
+.modal-row {
+  display: flex;
+  overflow: auto;
+  white-space: nowrap;
+}
+
 .image-style {
   width: 62px;
   height: 62px;
@@ -136,26 +142,6 @@
   border: 2px solid #2070a7;
 }
 
-
-@media (max-width: 640px) {
-  .modal {
-    width: 90%;
-    height: 90%;
-  }
-}
-
-@media (max-width: 480px) {
-  .column {
-    width: 48px;
-    height: 48px;
-    margin: 8px;
-  }
-  .image-style {
-    width: 48px;
-    height: 48px;
-  }
-
-}
 
 
 

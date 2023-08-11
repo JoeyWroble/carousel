@@ -1,9 +1,9 @@
 <dialog class="p-0" style="background-color: rgba(255,255,255)" data-dialog-target="dialog">
   <!-- Modal code -->
   <div data-controller="gallery">
-    <div class="modal rounded-lg shadow md:rounded-lg">
+    <div class="modal rounded-lg shadow md:rounded-lg md:max-w-2xl">
       <div class="rounded-lg bg-(229,229,229) bg-opacity-50">
-        <div>
+        <div class="md:shrink-0">
           <h2 class="modal-heading d-flex.flex-nowrap.justify-space text-lg font-bold pr-ring-color: rgba(59,130,246,.5);">
             <%= @product.title %>
           </h2>
@@ -13,12 +13,12 @@
               <!-- Expanded image -->
               <img id="modalExpandImg" alt="" src="<%=@product.image_urls.first %>">
             </div>
-            <div class="row">
+            <div id="modalRow" class="modal-row md:max-w-2xl">
               <span class="modal-close" data-action="click->dialog#close">&times;</span>
               <% @product.image_urls.each_with_index do |image_url, index| %>
                 <% strip_image_url = image_url.to_s.strip.delete('"') %>
                 <button class="column focus:outline-none focus:ring focus:ring-sky-300 rounded-lg">
-                  <img id = "imgStrip" src="<%= strip_image_url %>" alt="<%= index + 1 %>" class="image-style rounded-lg" data-action="click->gallery#expandMod">
+                  <img id = "imgStrip" src="<%= strip_image_url %>" alt="<%= index + 1 %>" class="image-style rounded-lg md:flex" data-action="click->gallery#expandMod">
                 </button>
               <% end %>
             </div>
